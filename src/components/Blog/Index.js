@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 export default function Index({data}) {
@@ -11,7 +12,9 @@ export default function Index({data}) {
                   <div class="card" style={{ width: "16rem" }}>
                     <img class="card-img-top" src="https://picsum.photos/seed/picsum/100/50" alt="Card image cap" />
                     <div class="card-body">
+                      <Link href={`/blog/${dt.id}`}>
                       <h5 class="card-title">{dt.title}</h5>
+                      </Link>
                     </div>
                   </div>
                 </div>
