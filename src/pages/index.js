@@ -1,6 +1,8 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Layout from '../components/Layout/Layout'
+import Search from '../components/Layout/Search/Search'
+import Blog from '../components/Blog/Index'
 import styles from '../styles/Home.module.css'
 
 
@@ -9,7 +11,8 @@ export default function Home({data}) {
   return (
     <div>
       <Layout>
-        asdfasdfadsf{data.length}
+        <Search></Search>
+        <Blog data={data}></Blog>
       </Layout>
     </div>
   )
