@@ -7,7 +7,7 @@ export default function Detail({blog, data}) {
   return (
     <div>
         <Layout>
-          <div className='container'>
+          <div className='container my-3'>
               <div className='row'>
                 <div className='col-md-8 col-sm-12 col-lg-8'>
                     <div className='container'>
