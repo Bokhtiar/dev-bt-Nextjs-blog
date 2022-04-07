@@ -1,7 +1,8 @@
 import React from 'react'
 import Layout from '../../components/Layout/Layout'
+import Link from 'next/link'
 
-export default function Detail({blog}) {
+export default function Detail({blog, data}) {
    
   return (
     <div>
@@ -17,7 +18,20 @@ export default function Detail({blog}) {
                         </div>
                     </div>
                 </div>
-                <div className='col-md-4 col-sm-12 col-lg-4'></div>
+                <div className='col-md-4 col-sm-12 col-lg-4'>
+                    <div className='container'>
+                        {
+                            data.map((dt, index)=>
+                                <div className='row my-3'>
+                                    <div className='col-md-4'> <img src='https://picsum.photos/seed/picsum/100/100'/></div>
+                                    <div className='col-md-8'> <Link href={`/blog/${dt.id}`}>{dt.title}</Link> </div>
+                                </div>
+                                
+                            )
+                        }
+                    
+                    </div>
+                </div>
               </div>
           </div>
         </Layout>
@@ -26,7 +40,25 @@ export default function Detail({blog}) {
 }
 
 export async function getServerSideProps({params}) {
+
     const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${params.id}`)
     const blog = await res.json()
-    return { props: { blog } }
+
+
+    const res1 = await fetch("https://jsonplaceholder.typicode.com/posts")
+    
+    const data = await res1.json()
+  
+
+
+    return { 
+        props: { 
+            blog,
+            data,
+        } 
+    }
+
   }
+
+
+  
