@@ -12,9 +12,8 @@ export default function Index({data}) {
                   <div class="card" style={{ width: "16rem" }}>
                     <img class="card-img-top" src="https://picsum.photos/seed/picsum/100/50" alt="Card image cap" />
                     <div class="card-body">
-                      <Link href={`/blog/${dt.id}`}>
-                      <h5 class="card-title">{dt.title}</h5>
-                      </Link>
+                    <Link href={`/blog/${dt.id}`}>{dt.title}</Link>
+
                     </div>
                   </div>
                 </div>
